@@ -1,0 +1,121 @@
+:root {
+  --color-bg: #ffffff;
+  --color-bg-soft: #fafafa;
+  --color-border: #e0e0e0;
+  --color-border-hover: #bdbdbd;
+  --color-text: #333;
+  --color-text-light: #777;
+  --color-primary: #4caf50;
+  --color-primary-hover: #43a047;
+  --color-primary-active: #388e3c;
+  --color-danger: #e53935;
+  --color-danger-hover: #d32f2f;
+  --color-danger-active: #c62828;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.08);
+  --shadow-md: 0 8px 30px rgba(0,0,0,.25);
+
+  --transition-fast: .15s ease;
+  --transition: .25s ease;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+}
+
+@function rem($px) {
+  @return calc($px / 16) * 1rem;
+}
+
+@mixin flex-col($gap: var(--space-3)) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin flex-row($gap: var(--space-3), $align: center, $justify: flex-start) {
+  display: flex;
+  flex-direction: row;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+@mixin card {
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  transition: box-shadow var(--transition-fast);
+
+  &:hover {
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+@mixin input-base {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+  &::placeholder {
+    color: #999;
+  }
+
+  &:hover {
+    border-color: var(--color-border-hover);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, .2);
+  }
+}
+
+@mixin button-base($bg, $bg-hover, $bg-active) {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background var(--transition-fast);
+
+  background: $bg;
+
+  &:hover {
+    background: $bg-hover;
+  }
+
+  &:active {
+    background: $bg-active;
+  }
+}
+
+.u-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-hidden {
+  display: none !important;
+}

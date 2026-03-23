@@ -1,0 +1,27 @@
+@use 'styles.scss' as *;
+
+.todo-item {
+  @include card;
+
+  &__summary {
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+    padding: var(--space-1) 0;
+  }
+
+  &__description {
+    margin: var(--space-3) 0;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  &__remove-btn {
+    @include button-base(
+      var(--color-danger),
+      var(--color-danger-hover),
+      var(--color-danger-active)
+    );
+    font-size: 13px;
+  }
+}

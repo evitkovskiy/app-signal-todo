@@ -1,0 +1,72 @@
+@use 'styles.scss' as *;
+
+.todo-dialog {
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 420px;
+  max-height: 90vh;
+  overflow: auto;
+  background: var(--color-bg);
+  box-shadow: var(--shadow-md);
+  animation: fadeIn var(--transition);
+  box-sizing: border-box;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(3px);
+  }
+}
+
+.todo-dialog__form {
+  @include flex-col(var(--space-4));
+  padding: var(--space-5);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.todo-dialog__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.todo-dialog__input,
+.todo-dialog__textarea {
+  @include input-base;
+}
+
+.todo-dialog__textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.todo-dialog__actions {
+  @include flex-row(var(--space-3), center, flex-end);
+}
+
+.todo-dialog__btn--cancel {
+  @include button-base(#e0e0e0, #d5d5d5, #c9c9c9);
+  color: #333;
+}
+
+.todo-dialog__btn--submit {
+  @include button-base(
+    var(--color-primary),
+    var(--color-primary-hover),
+    var(--color-primary-active)
+  );
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

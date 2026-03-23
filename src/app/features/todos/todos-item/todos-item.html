@@ -1,0 +1,11 @@
+<article class="todo-item">
+  <details class="todo-item__details">
+    <summary class="todo-item__summary">{{ todo().title }}</summary>
+
+    <p class="todo-item__description">
+      {{ todo().description }}
+    </p>
+
+    <button class="todo-item__remove-btn" (click)="removeTodo()">Удалить</button>
+  </details>
+</article>

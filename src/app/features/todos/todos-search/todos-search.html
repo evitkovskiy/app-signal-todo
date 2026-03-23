@@ -1,0 +1,9 @@
+<search class="todos-search">
+  <input
+    class="todos-search__input"
+    type="search"
+    placeholder="Поиск..."
+    [value]="store.searchPrompt()"
+    (input)="store.searchPrompt.set($event.target.value)"
+  />
+</search>

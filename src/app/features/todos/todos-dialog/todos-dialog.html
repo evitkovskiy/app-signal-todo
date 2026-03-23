@@ -1,0 +1,35 @@
+<dialog #dialog class="todo-dialog">
+  <form
+    class="todo-dialog__form"
+    method="dialog"
+    (submit)="createTodo(titleInput.value, description.value)"
+  >
+    <h2 class="todo-dialog__title">Новая задача</h2>
+
+    <input
+      #titleInput
+      class="todo-dialog__input"
+      type="text"
+      placeholder="Название"
+      autocomplete="off"
+      [value]="store.newTodoTitle()"
+      (input)="store.newTodoTitle.set($event.target.value)"
+    />
+
+    <textarea
+      #description
+      class="todo-dialog__textarea"
+      name="description"
+      placeholder="Описание"
+      autocomplete="off"
+      [value]="store.newTodoDescription()"
+      (input)="store.newTodoDescription.set($any($event.target).value)"
+    ></textarea>
+
+    <menu class="todo-dialog__actions">
+      <button class="todo-dialog__btn todo-dialog__btn--cancel" value="cancel">Выйти</button>
+
+      <button class="todo-dialog__btn todo-dialog__btn--submit" value="default">Создать</button>
+    </menu>
+  </form>
+</dialog>

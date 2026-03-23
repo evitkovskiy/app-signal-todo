@@ -1,0 +1,11 @@
+@use 'styles.scss' as *;
+
+.todos-search {
+  display: block;
+  width: 100%;
+}
+
+.todos-search__input {
+  @include input-base;
+  font-size: 15px;
+}
