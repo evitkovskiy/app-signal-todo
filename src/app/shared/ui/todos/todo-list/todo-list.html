@@ -1,0 +1,29 @@
+<section class="todos">
+  <header class="todos__header">
+    <todo-search [setSearch]="setSearch" class="todos__search" />
+
+    <button class="todos__add-btn" type="button" (click)="dialog.open()">Добавить</button>
+  </header>
+
+  <todo-dialog #dialog />
+
+  <section class="todos__list">
+    <ul class="todos__items">
+      @if (todos() !== null) {
+        @for (todo of todos(); track todo.id) {
+          <li class="todos__item">
+            <todo-item [todo]="todo" />
+          </li>
+        }
+      }
+
+      @if (todos$ !== null) {
+        @for (todo of todos$ | async; track todo.id) {
+          <li class="todos__item">
+            <todo-item [todo]="todo" />
+          </li>
+        }
+      }
+    </ul>
+  </section>
+</section>

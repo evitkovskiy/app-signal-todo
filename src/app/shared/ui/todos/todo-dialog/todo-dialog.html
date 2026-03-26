@@ -1,0 +1,59 @@
+<dialog #dialog class="todo-dialog">
+  <form class="todo-dialog__form" method="dialog" [formGroup]="form" (submit)="createTodo()">
+    <header class="todo-dialog__header">
+      <h2 class="todo-dialog__title">Новая задача</h2>
+    </header>
+
+    <section class="todo-dialog__body">
+      <input
+        class="todo-dialog__input"
+        type="text"
+        placeholder="Название"
+        formControlName="title"
+      />
+
+      @if (form.controls.title.touched && form.controls.title.invalid) {
+        <div class="todo-dialog__error">
+          @if (form.controls.title.errors?.['required']) {
+            <span>Название обязательно</span>
+          }
+          @if (form.controls.title.errors?.['minlength']) {
+            <span>Минимум 5 символов</span>
+          }
+        </div>
+      }
+
+      <textarea
+        class="todo-dialog__textarea"
+        placeholder="Описание"
+        formControlName="description"
+      ></textarea>
+
+      @if (form.controls.description.touched && form.controls.description.invalid) {
+        <div class="todo-dialog__error">
+          @if (form.controls.description.errors?.['required']) {
+            <span>Описание обязательно</span>
+          }
+          @if (form.controls.description.errors?.['minlength']) {
+            <span>Минимум 10 символов</span>
+          }
+        </div>
+      }
+    </section>
+
+    <menu class="todo-dialog__actions">
+      <button class="todo-dialog__btn todo-dialog__btn--cancel" type="submit" value="cancel">
+        Выйти
+      </button>
+
+      <button
+        class="todo-dialog__btn todo-dialog__btn--submit"
+        type="submit"
+        value="default"
+        [disabled]="form.invalid"
+      >
+        Создать
+      </button>
+    </menu>
+  </form>
+</dialog>

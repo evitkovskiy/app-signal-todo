@@ -1,0 +1,68 @@
+.approach {
+  padding: 3rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.5s ease;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+
+  /* Кнопка назад */
+  &__back-btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    color: #2563eb;
+    border-radius: 0.4rem;
+    transition: background 0.15s ease;
+
+    &:hover {
+      background: rgba(37, 99, 235, 0.1);
+    }
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #111;
+  }
+
+  &__subtitle {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+
+  &__divider {
+    width: 80px;
+    height: 4px;
+    background: #3b82f6;
+    border-radius: 4px;
+    margin: 0.5rem auto 0;
+  }
+
+  &__content {
+    margin-top: 2rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

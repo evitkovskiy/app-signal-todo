@@ -1,0 +1,14 @@
+<section class="approach">
+  <header class="approach__header">
+    <button class="approach__back-btn" type="button" (click)="goBack()">← Назад</button>
+
+    <h1 class="approach__title">{{ meta.title }}</h1>
+    <p class="approach__subtitle">{{ meta.subtitle }}</p>
+
+    <div class="approach__divider"></div>
+  </header>
+
+  <div class="approach__content">
+    <ng-content />
+  </div>
+</section>
