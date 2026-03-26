@@ -8,10 +8,10 @@ import { APPROACH_META } from '@shared/tokens';
   styleUrls: ['./approach-layout.scss'],
 })
 export class ApproachLayout {
-  public readonly meta = inject(APPROACH_META);
   private readonly router = inject(Router);
+  public readonly meta = inject(APPROACH_META);
 
-  goBack() {
+  goBack(): void {
     this.router.navigate(['/']);
   }
 }

@@ -12,24 +12,15 @@ import { TODOS_STORE } from '@shared/tokens';
 export class TodosList {
   public readonly store = inject(TODOS_STORE);
 
-  private readonly todosSignal =
-    this.store.filteredTodos ??
-    this.store.filtered ??
-    this.store.todo ??
-    null;
+  private readonly todosSignal = this.store.filteredTodos ?? this.store.todo ?? null;
 
-  public readonly todos = computed(() => {
-    return this.todosSignal ? this.todosSignal() : null;
-  });
+  public readonly todos = computed(() => (this.todosSignal ? this.todosSignal() : null));
 
-  public readonly todos$ =
-    this.store.filteredTodos$ ??
-    this.store.todos$ ??
-    null;
+  public readonly todos$ = this.store.filteredTodos$ ?? this.store.todos$ ?? null;
 
   public readonly setSearch = this.store.setSearch
     ? this.store.setSearch.bind(this.store)
     : this.store.searchPrompt
-    ? this.store.searchPrompt.set.bind(this.store.searchPrompt)
-    : (value: string) => {};
+      ? this.store.searchPrompt.set.bind(this.store.searchPrompt)
+      : () => {};
 }

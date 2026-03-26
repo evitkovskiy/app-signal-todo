@@ -14,19 +14,19 @@ export const TodoSignalStore = signalStore(
     newDescription: '',
   }),
 
-  withComputed((store) => ({
-    filtered: () => {
-      const q = store.search().trim().toLowerCase();
-      if (!q) return store.todos();
+withComputed((store) => ({
+  filteredTodos: () => {
+    const q = store.search().trim().toLowerCase();
+    if (!q) return store.todos();
 
-      return store
-        .todos()
-        .filter(
-          (t: ITodo) =>
-            t.title.toLowerCase().includes(q) || t.description.toLowerCase().includes(q),
-        );
-    },
-  })),
+    return store.todos().filter(
+      (t: ITodo) =>
+        t.title.toLowerCase().includes(q) ||
+        t.description.toLowerCase().includes(q),
+    );
+  },
+})),
+
 
   withMethods((store, todoService = inject(TodoService)) => ({
     loadInitial() {

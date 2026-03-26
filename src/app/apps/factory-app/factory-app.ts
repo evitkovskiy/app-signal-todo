@@ -1,9 +1,9 @@
 import { Component, Injector } from '@angular/core';
+import { TodoService } from '@core/services';
 import { ApproachLayout, TodosList } from '@shared/ui';
 import { APPROACH_META, TODO_STORAGE_KEY, TODOS_STORE } from '@shared/tokens';
 import { APP_SUBTITLE, APP_TITLE } from './constants';
 import { createFactoryTodoStore } from './store';
-import { TodoService } from '@core/services';
 
 @Component({
   selector: 'factory-app',

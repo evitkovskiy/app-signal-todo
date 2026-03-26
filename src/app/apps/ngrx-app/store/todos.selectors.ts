@@ -7,7 +7,7 @@ export const {
   selectSearch,
 } = todosFeature;
 
-export const selectFilteredTodos = createSelector(
+export const filteredTodos$ = createSelector(
   selectTodos,
   selectSearch,
   (todos, search) => {

@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, combineLatest, map } from 'rxjs';
-import { ITodo } from '../../../core/models';
-import { TodoService } from '../../../core/services';
+import { ITodo } from '@core/models';
+import { TodoService } from '@core/services';
 
 @Injectable({ providedIn: 'root' })
 export class ReactiveTodoStore {

@@ -2,13 +2,14 @@ import { inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ITodo } from '@core/models';
 import { TodosActions } from './todos.actions';
-import { selectFilteredTodos, selectSearch } from './todos.selectors';
+import { filteredTodos$, selectSearch } from './todos.selectors';
 
 @Injectable({ providedIn: 'root' })
 export class TodosFacade {
   private readonly store = inject(Store);
 
-  public readonly todos$ = this.store.select(selectFilteredTodos);
+  public readonly todos$ = this.store.select(filteredTodos$);
+
   public readonly search$ = this.store.select(selectSearch);
 
   public loadInitial(todos: ITodo[]): void {

@@ -1,6 +1,5 @@
 import { Signal, WritableSignal } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import { ITodo } from '@core/models';
 
 export interface ApproachMeta {
@@ -11,7 +10,6 @@ export interface ApproachMeta {
 export interface TodosStore {
   todo?: Signal<ITodo[]>;
   filteredTodos?: Signal<ITodo[]>;
-  filtered?: Signal<ITodo[]>;
 
   todos$?: Observable<ITodo[]>;
   filteredTodos$?: Observable<ITodo[]>;
@@ -22,5 +20,7 @@ export interface TodosStore {
   addTodo(title: string, description: string): void;
   removeTodo(id: number): void;
   toggleCompleted(id: number): void;
+
   loadInitial?(): void;
 }
+

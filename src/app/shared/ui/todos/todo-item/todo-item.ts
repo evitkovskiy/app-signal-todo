@@ -11,11 +11,11 @@ export class TodoItem {
   readonly todo = input.required<ITodo>();
   readonly store = inject(TODOS_STORE);
 
-  remove() {
+  remove(): void {
     this.store.removeTodo(this.todo().id);
   }
 
-  toggleCompleted() {
+  toggleCompleted(): void {
     this.store.toggleCompleted(this.todo().id);
   }
 }

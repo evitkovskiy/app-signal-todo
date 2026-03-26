@@ -2,18 +2,11 @@
   <details class="todo-item__details" [open]="todo().complete">
     <summary class="todo-item__summary">
       <label class="todo-item__checkbox">
-        <input
-          type="checkbox"
-          [checked]="todo().complete"
-          (change)="toggleCompleted()"
-        />
+        <input type="checkbox" [checked]="todo().complete" (change)="toggleCompleted()" />
         <span></span>
       </label>
 
-      <span
-        class="todo-item__title"
-        [class.todo-item__title--completed]="todo().complete"
-      >
+      <span class="todo-item__title" [class.todo-item__title--completed]="todo().complete">
         {{ todo().title }}
       </span>
     </summary>
@@ -23,13 +16,7 @@
     </p>
 
     <menu class="todo-item__actions">
-      <button
-        class="todo-item__remove-btn"
-        type="button"
-        (click)="remove()"
-      >
-        Удалить
-      </button>
+      <button class="todo-item__remove-btn" type="button" (click)="remove()">Удалить</button>
     </menu>
   </details>
 </article>

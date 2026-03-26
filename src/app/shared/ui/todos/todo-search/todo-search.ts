@@ -12,7 +12,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class TodoSearch {
   public readonly setSearch = input.required<(value: string) => void>();
 
-  public readonly searchControl = new FormControl('');
+  public readonly searchControl = new FormControl<string>('');
   public readonly searchControlChanged = toSignal(
     this.searchControl.valueChanges.pipe(
       debounceTime(200),
